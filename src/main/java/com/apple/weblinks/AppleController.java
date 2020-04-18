@@ -1,6 +1,9 @@
 package com.apple.weblinks;
 
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.gargoylesoftware.htmlunit.NicelyResynchronizingAjaxController;
 import com.gargoylesoftware.htmlunit.WebClient;
@@ -16,10 +19,14 @@ public class AppleController {
 		openAppleSite();
 	}
 	
-
 	public static  void openAppleSite() throws Exception {
 		WebClient webClient = getWebClient();
-		HtmlPage page = webClient.getPage("https://www.apple.com/mac/");
+		//Enter data using BufferReader 
+        BufferedReader reader =  new BufferedReader(new InputStreamReader(System.in)); 
+        // Reading data using readLine 
+        String name = reader.readLine(); 
+		HtmlPage page = webClient.getPage(name);
+		//HtmlPage page = webClient.getPage("https://www.apple.com/mac/");
 		HtmlElement element = (HtmlElement) page.getByXPath("//*[@id=\"chapternav\"]/div").get(0);
 		DomNodeList<DomNode> nodes = element.querySelectorAll("span");
 	    for(DomNode a : nodes) {
