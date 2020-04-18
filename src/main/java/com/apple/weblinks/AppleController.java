@@ -13,6 +13,8 @@ import com.gargoylesoftware.htmlunit.html.HtmlElement;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 
 
+//The below code has been implemented using HTMLUnit library to scan the webpage
+//Dependenciees have been added in POM file
 public class AppleController {
 
 	public static void main(String[] args) throws Exception {
